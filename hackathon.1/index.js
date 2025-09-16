@@ -26,5 +26,10 @@ app.post("/generate-code", async (req, res) => {
   }
 });
 
+// ✅ Test route
+app.get("/", (req, res) => {
+  res.send("✅ Backend is running on Vercel!");
+});
+
 // ✅ Export for Vercel
 export default app;
