@@ -1,3 +1,5 @@
+// hackathon.1/index.js
+
 import express from "express";
 import OpenAI from "openai";
 import dotenv from "dotenv";
@@ -7,6 +9,11 @@ dotenv.config();
 const app = express();
 app.use(cors());
 app.use(express.json());
+
+// ✅ Default root API
+app.get("/", (req, res) => {
+  res.send("✅ Backend is running!");
+});
 
 // Connect to OpenAI using your API key
 const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
@@ -24,11 +31,6 @@ app.post("/generate-code", async (req, res) => {
     console.error(error);
     res.status(500).send("Something went wrong");
   }
-});
-
-// ✅ Test route
-app.get("/", (req, res) => {
-  res.send("✅ Backend is running on Vercel!");
 });
 
 // ✅ Export for Vercel
