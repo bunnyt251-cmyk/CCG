@@ -4,6 +4,6 @@
     { "src": "hackathon.1/index.js", "use": "@vercel/node" }
   ],
   "routes": [
-    { "src": "/(.*)", "dest": "hackathon.1/index.js" }
+    { "src": "/generate-code", "dest": "hackathon.1/index.js" }
   ]
 }
